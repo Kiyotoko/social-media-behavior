@@ -1,0 +1,41 @@
+\documentclass[a4paper]{article}
+\usepackage[a4paper,left=2.5cm,right=3.5cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{csquotes}
+\usepackage[style=numeric]{biblatex}
+\addbibresource{references.bib}
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{mathptmx}
+\usepackage{listings}
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+\usepackage[onehalfspacing]{setspace}
+
+\renewcommand{\refname}{Literaturverzeichnis}
+\renewcommand*\contentsname{Inhaltsverzeichnis}
+
+% Dokument
+\begin{document}
+\parindent0.1cm 
+
+% Titelblatt
+\include{chapter/titelblatt.tex}
+
+% Inhaltsverzeichnis
+\tableofcontents
+\doublespacing
+\include{chapter/einleitung.tex}
+\include{chapter/recherche.tex}
+\include{chapter/methode.tex}
+\include{chapter/auswertung.tex}
+\include{chapter/diskussion.tex}
+\include{chapter/zusammenfassung.tex}
+\include{chapter/anhang.tex}
+\include{chapter/abkürzungsverzeichnis.tex}
+\printbibliography[title = {Literaturverzeichnis}, heading=bibnumbered]
+\include{chapter/selbstständigkeitserklärung.tex}
+
+\end{document}
