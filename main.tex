@@ -1,41 +1,47 @@
-\documentclass[a4paper]{article}
-\usepackage[a4paper,left=2.5cm,right=3.5cm,top=2cm,bottom=2cm]{geometry}
+\documentclass[a4paper,11pt]{article}
+\usepackage[a4paper,left=3cm,right=3cm,top=2cm,bottom=2cm]{geometry}
 \usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{csquotes}
-\usepackage[style=numeric]{biblatex}
-\addbibresource{references.bib}
+\usepackage[nottoc,numbib]{tocbibind}
 \usepackage[ngerman]{babel}
 \usepackage{graphicx}
-\usepackage{tabularx}
-\usepackage{mathptmx}
-\usepackage{listings}
-\usepackage{chngcntr}
-\counterwithin{figure}{section}
 \usepackage[onehalfspacing]{setspace}
+\usepackage{hyperref}
+\usepackage{caption}
 
-\renewcommand{\refname}{Literaturverzeichnis}
-\renewcommand*\contentsname{Inhaltsverzeichnis}
+\renewcommand{\listoffigures}{
+    \begingroup
+    \tocsection
+    \tocfile{\listfigurename}{lof}
+    \endgroup
+}
 
-% Dokument
+\bibliographystyle{ieeetr}
+\counterwithin{figure}{section}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\captionsetup[figure]{font=small,labelfont=small}
+\emergencystretch=1cm
+
+\title{Das Social-Media-Verhalten von Jugendlichen}
+\author{Karl Zschiebsch}
+
 \begin{document}
-\parindent0.1cm 
+    \parindent0.4cm 
 
-% Titelblatt
-\include{chapter/cover.tex}
-
-% Inhaltsverzeichnis
-\tableofcontents
-\doublespacing
-\include{chapter/introduction.tex}
-\include{chapter/research.tex}
-\include{chapter/method.tex}
-\include{chapter/evaluation.tex}
-\include{chapter/discussion.tex}
-\include{chapter/summary.tex}
-\include{chapter/appendix.tex}
-\include{chapter/abbreviation.tex}
-\printbibliography[title = {Literaturverzeichnis}, heading=bibnumbered]
-\include{chapter/independence.tex}
-
+    \maketitle
+    \tableofcontents
+    \newpage
+    \listoffigures
+    \include{chapter/introduction.tex}
+    \include{chapter/research.tex}
+    \include{chapter/method.tex}
+    \include{chapter/evaluation.tex}
+    \include{chapter/discussion.tex}
+    \include{chapter/summary.tex}
+    \bibliography{references.bib}
 \end{document}
